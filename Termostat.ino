@@ -119,7 +119,8 @@ void setup() {
 // Nekonečná smyčka
 void loop() {
   server.handleClient();                              // pravidelné volání detekce klienta
-
+  yield();                                            // počkat až se provedou background operace (WiFi, TCP/IP, etc.)
+  
   if (abs(millis() - milis2 > 1000)) {                // Omezení na preovedení každou sekundu
     milis2 = millis();                                // Reset odpočtu
 
